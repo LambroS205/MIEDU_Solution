@@ -37,24 +37,17 @@ namespace MIEDU.UI.Forms
 
         private void btnQuanLyGV_Click(object sender, EventArgs e)
         {
-            // Xóa các control cũ trên Panel Content
-            pnlContent.Controls.Clear();
-
-            // Khởi tạo và thêm UserControl quản lý giảng viên
-            ucQuanLyGiangVien ucGV = new ucQuanLyGiangVien();
-            ucGV.Dock = DockStyle.Fill;
-            pnlContent.Controls.Add(ucGV);
+            LoadUserControl(new ucQuanLyGiangVien());
         }
 
         private void btnPhanCong_Click(object sender, EventArgs e)
         {
-            // Xóa các control cũ trên Panel Content
-            pnlContent.Controls.Clear();
+            LoadUserControl(new ucPhanCong());
+        }
 
-            // Khởi tạo và thêm UserControl Phân Công
-            ucPhanCong ucPC = new ucPhanCong();
-            ucPC.Dock = DockStyle.Fill;
-            pnlContent.Controls.Add(ucPC);
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new ucThongKe());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
