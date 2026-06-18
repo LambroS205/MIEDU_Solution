@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MIEDU.BLL/MIEDU.BLL.csproj" />
+  <Project Path="MIEDU.DAL/MIEDU.DAL.csproj" />
+  <Project Path="MIEDU.Models/MIEDU.Models.csproj" />
+  <Project Path="MIEDU.TUI/MIEDU.TUI.csproj" />
+  <Project Path="MIEDU.UI/MIEDU.UI.csproj" />
+</Solution>
