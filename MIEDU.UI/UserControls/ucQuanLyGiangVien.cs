@@ -63,5 +63,61 @@ namespace MIEDU.UI.UserControls
             txtSearch.Clear();
             LoadData();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var frm = new Forms.frmEditGiangVien(null))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvGiangVien.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một giảng viên trên lưới để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var gv = (MIEDU.Models.Entities.GiangVien)dgvGiangVien.SelectedRows[0].DataBoundItem;
+            using (var frm = new Forms.frmEditGiangVien(gv))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvGiangVien.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một giảng viên để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var gv = (MIEDU.Models.Entities.GiangVien)dgvGiangVien.SelectedRows[0].DataBoundItem;
+            var confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa giảng viên {gv.HoTen} ({gv.MaNhanSu}) khỏi hệ thống?\n\nCảnh báo: Sẽ xóa luôn lịch phân công của người này!",
+                                          "Xác nhận Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    _giangVienBLL.Delete(gv.MaNhanSu);
+                    LoadData();
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
