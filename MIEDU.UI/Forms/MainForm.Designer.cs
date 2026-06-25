@@ -18,6 +18,7 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnThongTinCaNhan = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnPhanCong = new System.Windows.Forms.Button();
             this.btnQuanLyGV = new System.Windows.Forms.Button();
@@ -31,6 +32,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.pnlSidebar.Controls.Add(this.btnThongTinCaNhan);
             this.pnlSidebar.Controls.Add(this.btnThongKe);
             this.pnlSidebar.Controls.Add(this.btnPhanCong);
             this.pnlSidebar.Controls.Add(this.btnQuanLyGV);
@@ -42,6 +44,24 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(250, 681);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // btnThongTinCaNhan
+            // 
+            this.btnThongTinCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThongTinCaNhan.FlatAppearance.BorderSize = 0;
+            this.btnThongTinCaNhan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnThongTinCaNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongTinCaNhan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnThongTinCaNhan.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnThongTinCaNhan.Location = new System.Drawing.Point(0, 300);
+            this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
+            this.btnThongTinCaNhan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnThongTinCaNhan.Size = new System.Drawing.Size(250, 50);
+            this.btnThongTinCaNhan.TabIndex = 6;
+            this.btnThongTinCaNhan.Text = "👤 Tài khoản cá nhân";
+            this.btnThongTinCaNhan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongTinCaNhan.UseVisualStyleBackColor = true;
+            this.btnThongTinCaNhan.Click += new System.EventHandler(this.btnThongTinCaNhan_Click);
             // 
             // btnThongKe
             // 
@@ -122,7 +142,7 @@
             this.lblUserInfo.Name = "lblUserInfo";
             this.lblUserInfo.Size = new System.Drawing.Size(250, 50);
             this.lblUserInfo.TabIndex = 1;
-            this.lblUserInfo.Text = "Xin chào, Admin\nVai trò: Admin";
+            this.lblUserInfo.Text = "Xin chào, User\nVai trò: Unknown";
             this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLogo
@@ -173,5 +193,6 @@
         private System.Windows.Forms.Button btnQuanLyGV;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnPhanCong;
+        private System.Windows.Forms.Button btnThongTinCaNhan;
     }
 }

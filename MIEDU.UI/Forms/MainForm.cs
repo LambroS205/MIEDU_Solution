@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
+using MIEDU.UI.UserControls;
 using MIEDU.UI.Utils;
-using MIEDU.UI.UserControls; // Thêm dòng này
 
 namespace MIEDU.UI.Forms
 {
     public partial class MainForm : Form
     {
-        private LoginForm _loginForm;
+        private Form _loginForm;
 
-        public MainForm(LoginForm loginForm)
+        public MainForm(Form loginForm)
         {
             InitializeComponent();
             _loginForm = loginForm;
@@ -17,17 +17,20 @@ namespace MIEDU.UI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Hiển thị thông tin người dùng đang đăng nhập
-            if (Session.IsLoggedIn)
+            LoadUserInfo();
+            // Tự động load màn hình Quản lý Giảng viên khi vừa đăng nhập xong
+            btnQuanLyGV.PerformClick();
+        }
+
+        private void LoadUserInfo()
+        {
+            if (Session.CurrentUser != null)
             {
                 lblUserInfo.Text = $"Xin chào, {Session.CurrentUser.Username}\nVai trò: {Session.CurrentUser.GetRoleName()}";
             }
-
-            // Mở mặc định trang Quản lý giảng viên
-            btnQuanLyGV_Click(null, null);
         }
 
-        // Hàm hỗ trợ để load UserControl vào pnlContent
+        // Hàm hỗ trợ để chuyển đổi giữa các màn hình chức năng (UserControl)
         private void LoadUserControl(UserControl uc)
         {
             pnlContent.Controls.Clear();
@@ -50,17 +53,24 @@ namespace MIEDU.UI.Forms
             LoadUserControl(new ucThongKe());
         }
 
+        private void btnThongTinCaNhan_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new ucThongTinCaNhan());
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // Xóa session và hiển thị lại form login
-            Session.Logout();
-            this.Hide();
-            _loginForm.Show();
+            var result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Session.Logout();
+                this.Hide();
+                _loginForm.Show();
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Tắt hoàn toàn ứng dụng nếu tắt MainForm
             Application.Exit();
         }
     }

@@ -1,17 +1,20 @@
-﻿using System;
+﻿using MIEDU.BLL.Services;
+using MIEDU.Models.Entities;
+using System;
 using System.Windows.Forms;
-using MIEDU.BLL.Services;
 
 namespace MIEDU.UI.UserControls
 {
     public partial class ucQuanLyGiangVien : UserControl
     {
         private GiangVienBLL _giangVienBLL;
+        private ExportBLL _exportBLL;
 
         public ucQuanLyGiangVien()
         {
             InitializeComponent();
             _giangVienBLL = new GiangVienBLL();
+            _exportBLL = new ExportBLL();
         }
 
         private void ucQuanLyGiangVien_Load(object sender, EventArgs e)
@@ -95,27 +98,42 @@ namespace MIEDU.UI.UserControls
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvGiangVien.SelectedRows.Count == 0)
+            if (dgvGiangVien.CurrentRow != null)
             {
-                MessageBox.Show("Vui lòng chọn một giảng viên để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var gv = (MIEDU.Models.Entities.GiangVien)dgvGiangVien.SelectedRows[0].DataBoundItem;
-            var confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa giảng viên {gv.HoTen} ({gv.MaNhanSu}) khỏi hệ thống?\n\nCảnh báo: Sẽ xóa luôn lịch phân công của người này!",
-                                          "Xác nhận Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (confirm == DialogResult.Yes)
-            {
-                try
+                var gv = (GiangVien)dgvGiangVien.CurrentRow.DataBoundItem;
+                if (MessageBox.Show($"Bạn có chắc muốn xóa giảng viên {gv.HoTen}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    _giangVienBLL.Delete(gv.MaNhanSu);
-                    LoadData();
-                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        _giangVienBLL.Delete(gv.MaNhanSu);
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", FileName = "DanhSachGiangVien.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        // Lấy dữ liệu đang hiển thị ra để xuất (hỗ trợ cả khi đang tìm kiếm)
+                        var data = _giangVienBLL.Search(txtSearch.Text.Trim());
+                        _exportBLL.ExportDanhSachGiangVien(data, sfd.FileName);
+                        MessageBox.Show("Xuất báo cáo Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

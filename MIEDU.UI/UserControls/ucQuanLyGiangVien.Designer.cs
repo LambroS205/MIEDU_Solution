@@ -10,6 +10,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridView dgvGiangVien;
         private System.Windows.Forms.Panel pnlTop;
 
@@ -28,6 +29,7 @@
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
+            btnExport = new Button();
             dgvGiangVien = new DataGridView();
             pnlTop = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvGiangVien).BeginInit();
@@ -121,14 +123,28 @@
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(811, 36);
-            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Location = new Point(710, 27);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(63, 40);
+            btnDelete.Size = new Size(55, 30);
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = Color.FromArgb(40, 167, 69);
+            btnExport.FlatAppearance.BorderSize = 0;
+            btnExport.FlatStyle = FlatStyle.Flat;
+            btnExport.ForeColor = Color.White;
+            btnExport.Location = new Point(806, 37);
+            btnExport.Margin = new Padding(3, 4, 3, 4);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(63, 40);
+            btnExport.TabIndex = 8;
+            btnExport.Text = "📥 Xuất Excel";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // dgvGiangVien
             // 
@@ -155,9 +171,9 @@
             pnlTop.Controls.Add(txtSearch);
             pnlTop.Controls.Add(btnSearch);
             pnlTop.Controls.Add(btnRefresh);
-            pnlTop.Controls.Add(btnAdd);
             pnlTop.Controls.Add(btnEdit);
-            pnlTop.Controls.Add(btnDelete);
+            pnlTop.Controls.Add(btnAdd);
+            pnlTop.Controls.Add(btnExport);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Margin = new Padding(3, 4, 3, 4);
