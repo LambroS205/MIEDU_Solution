@@ -1,6 +1,6 @@
 ﻿namespace MIEDU.UI.UserControls
 {
-    partial class ucQuanLyGiangVien
+    partial class ucQuanLyMonHoc
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Panel pnlTop;
@@ -11,15 +11,11 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.DataGridView dgvGiangVien;
+        private System.Windows.Forms.DataGridView dgvMonHoc;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -33,16 +29,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.dgvGiangVien = new System.Windows.Forms.DataGridView();
+            this.dgvMonHoc = new System.Windows.Forms.DataGridView();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
             this.SuspendLayout();
-            // 
+
             // pnlTop
-            // 
-            this.pnlTop.Controls.Add(this.btnExport);
-            this.pnlTop.Controls.Add(this.btnDelete);  // ĐÃ THÊM NÚT XÓA VÀO ĐÂY
+            this.pnlTop.Controls.Add(this.btnDelete);
             this.pnlTop.Controls.Add(this.btnEdit);
             this.pnlTop.Controls.Add(this.btnAdd);
             this.pnlTop.Controls.Add(this.btnRefresh);
@@ -52,30 +45,23 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(850, 100);
-            this.pnlTop.TabIndex = 0;
-            // 
+            this.pnlTop.Size = new System.Drawing.Size(780, 100);
+
             // lblTitle
-            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblTitle.Location = new System.Drawing.Point(20, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(242, 30);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "QUẢN LÝ GIẢNG VIÊN";
-            // 
+            this.lblTitle.Text = "QUẢN LÝ MÔN HỌC";
+
             // txtSearch
-            // 
             this.txtSearch.Location = new System.Drawing.Point(25, 55);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "Nhập mã hoặc tên...";
+            this.txtSearch.PlaceholderText = "Nhập mã hoặc tên môn...";
             this.txtSearch.Size = new System.Drawing.Size(200, 23);
-            this.txtSearch.TabIndex = 1;
-            // 
+
             // btnSearch
-            // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,13 +69,11 @@
             this.btnSearch.Location = new System.Drawing.Point(235, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(80, 26);
-            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
+
             // btnRefresh
-            // 
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -97,13 +81,11 @@
             this.btnRefresh.Location = new System.Drawing.Point(325, 53);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(80, 26);
-            this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Tải lại";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
+
             // btnAdd
-            // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -111,13 +93,11 @@
             this.btnAdd.Location = new System.Drawing.Point(425, 53);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 26);
-            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "+ Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
+
             // btnEdit
-            // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -125,13 +105,11 @@
             this.btnEdit.Location = new System.Drawing.Point(515, 53);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(80, 26);
-            this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
+
             // btnDelete
-            // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -139,57 +117,39 @@
             this.btnDelete.Location = new System.Drawing.Point(605, 53);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 26);
-            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(695, 53);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(100, 26);
-            this.btnExport.TabIndex = 7;
-            this.btnExport.Text = "📥 Xuất Excel";
-            this.btnExport.UseVisualStyleBackColor = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // dgvGiangVien
-            // 
-            this.dgvGiangVien.AllowUserToAddRows = false;
-            this.dgvGiangVien.AllowUserToDeleteRows = false;
-            this.dgvGiangVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvGiangVien.BackgroundColor = System.Drawing.Color.White;
-            this.dgvGiangVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvGiangVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGiangVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvGiangVien.Location = new System.Drawing.Point(0, 100);
-            this.dgvGiangVien.Name = "dgvGiangVien";
-            this.dgvGiangVien.ReadOnly = true;
-            this.dgvGiangVien.RowHeadersVisible = false;
-            this.dgvGiangVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGiangVien.Size = new System.Drawing.Size(850, 500);
-            this.dgvGiangVien.TabIndex = 1;
-            // 
-            // ucQuanLyGiangVien
-            // 
+
+            // dgvMonHoc
+            this.dgvMonHoc.AllowUserToAddRows = false;
+            this.dgvMonHoc.AllowUserToDeleteRows = false;
+            this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonHoc.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMonHoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMonHoc.Location = new System.Drawing.Point(0, 100);
+            this.dgvMonHoc.Name = "dgvMonHoc";
+            this.dgvMonHoc.ReadOnly = true;
+            this.dgvMonHoc.RowHeadersVisible = false;
+            this.dgvMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonHoc.Size = new System.Drawing.Size(780, 500);
+            this.dgvMonHoc.TabIndex = 1;
+
+            // ucQuanLyMonHoc
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.dgvGiangVien);
+            this.Controls.Add(this.dgvMonHoc);
             this.Controls.Add(this.pnlTop);
-            this.Name = "ucQuanLyGiangVien";
-            this.Size = new System.Drawing.Size(850, 600);
-            this.Load += new System.EventHandler(this.ucQuanLyGiangVien_Load);
+            this.Name = "ucQuanLyMonHoc";
+            this.Size = new System.Drawing.Size(780, 600);
+            this.Load += new System.EventHandler(this.ucQuanLyMonHoc_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).EndInit();
             this.ResumeLayout(false);
-
         }
     }
 }

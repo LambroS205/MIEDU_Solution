@@ -21,6 +21,7 @@
             this.btnThongTinCaNhan = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnPhanCong = new System.Windows.Forms.Button();
+            this.btnQuanLyMonHoc = new System.Windows.Forms.Button();
             this.btnQuanLyGV = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblUserInfo = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.pnlSidebar.Controls.Add(this.btnThongTinCaNhan);
             this.pnlSidebar.Controls.Add(this.btnThongKe);
             this.pnlSidebar.Controls.Add(this.btnPhanCong);
+            this.pnlSidebar.Controls.Add(this.btnQuanLyMonHoc);
             this.pnlSidebar.Controls.Add(this.btnQuanLyGV);
             this.pnlSidebar.Controls.Add(this.btnLogout);
             this.pnlSidebar.Controls.Add(this.lblUserInfo);
@@ -53,7 +55,7 @@
             this.btnThongTinCaNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongTinCaNhan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThongTinCaNhan.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnThongTinCaNhan.Location = new System.Drawing.Point(0, 300);
+            this.btnThongTinCaNhan.Location = new System.Drawing.Point(0, 350);
             this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
             this.btnThongTinCaNhan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnThongTinCaNhan.Size = new System.Drawing.Size(250, 50);
@@ -71,7 +73,7 @@
             this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongKe.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThongKe.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnThongKe.Location = new System.Drawing.Point(0, 250);
+            this.btnThongKe.Location = new System.Drawing.Point(0, 300);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnThongKe.Size = new System.Drawing.Size(250, 50);
@@ -89,7 +91,7 @@
             this.btnPhanCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhanCong.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPhanCong.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPhanCong.Location = new System.Drawing.Point(0, 200);
+            this.btnPhanCong.Location = new System.Drawing.Point(0, 250);
             this.btnPhanCong.Name = "btnPhanCong";
             this.btnPhanCong.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnPhanCong.Size = new System.Drawing.Size(250, 50);
@@ -98,6 +100,24 @@
             this.btnPhanCong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPhanCong.UseVisualStyleBackColor = true;
             this.btnPhanCong.Click += new System.EventHandler(this.btnPhanCong_Click);
+            // 
+            // btnQuanLyMonHoc
+            // 
+            this.btnQuanLyMonHoc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuanLyMonHoc.FlatAppearance.BorderSize = 0;
+            this.btnQuanLyMonHoc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnQuanLyMonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuanLyMonHoc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnQuanLyMonHoc.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnQuanLyMonHoc.Location = new System.Drawing.Point(0, 200);
+            this.btnQuanLyMonHoc.Name = "btnQuanLyMonHoc";
+            this.btnQuanLyMonHoc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnQuanLyMonHoc.Size = new System.Drawing.Size(250, 50);
+            this.btnQuanLyMonHoc.TabIndex = 7;
+            this.btnQuanLyMonHoc.Text = "📚 Quản lý Môn học";
+            this.btnQuanLyMonHoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanLyMonHoc.UseVisualStyleBackColor = true;
+            this.btnQuanLyMonHoc.Click += new System.EventHandler(this.btnQuanLyMonHoc_Click);
             // 
             // btnQuanLyGV
             // 
@@ -187,12 +207,13 @@
 
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Label lblLogo;
-        private System.Windows.Forms.Label lblUserInfo;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnQuanLyGV;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnPhanCong;
+        private System.Windows.Forms.Button btnQuanLyMonHoc;
+        private System.Windows.Forms.Button btnQuanLyGV;
         private System.Windows.Forms.Button btnThongTinCaNhan;
+        private System.Windows.Forms.Label lblUserInfo;
+        private System.Windows.Forms.Label lblLogo;
     }
 }

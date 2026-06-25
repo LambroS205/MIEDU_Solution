@@ -89,5 +89,14 @@ namespace MIEDU.BLL.Services
 
             return _phanCongDAL.Add(pcNew);
         }
+
+        // THÊM MỚI: Xóa phân công
+        public void Delete(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("Mã phân công không hợp lệ!");
+
+            _phanCongDAL.Delete(id);
+        }
     }
 }

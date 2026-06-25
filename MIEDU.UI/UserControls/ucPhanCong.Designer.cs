@@ -14,6 +14,7 @@
         private System.Windows.Forms.Label lblNamHoc;
         private System.Windows.Forms.TextBox txtNamHoc;
         private System.Windows.Forms.Button btnAssign;
+        private System.Windows.Forms.Button btnDelete; // Khai báo thêm nút Delete
         private System.Windows.Forms.DataGridView dgvPhanCong;
 
         protected override void Dispose(bool disposing)
@@ -35,6 +36,7 @@
             this.lblNamHoc = new System.Windows.Forms.Label();
             this.txtNamHoc = new System.Windows.Forms.TextBox();
             this.btnAssign = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button(); // Khởi tạo
             this.dgvPhanCong = new System.Windows.Forms.DataGridView();
 
             this.pnlTop.SuspendLayout();
@@ -53,6 +55,7 @@
             this.pnlTop.Controls.Add(this.lblNamHoc);
             this.pnlTop.Controls.Add(this.txtNamHoc);
             this.pnlTop.Controls.Add(this.btnAssign);
+            this.pnlTop.Controls.Add(this.btnDelete); // Thêm vào Panel
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
@@ -133,6 +136,19 @@
             this.btnAssign.Text = "+ Phân công";
             this.btnAssign.UseVisualStyleBackColor = false;
             this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
+
+            // btnDelete
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(485, 104);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(110, 28);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "🗑️ Hủy phân công";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
 
             // dgvPhanCong
             this.dgvPhanCong.AllowUserToAddRows = false;

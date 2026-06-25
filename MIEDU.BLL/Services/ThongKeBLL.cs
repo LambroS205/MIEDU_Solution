@@ -23,5 +23,10 @@ namespace MIEDU.BLL.Services
         {
             return _thongKeDAL.GetThongKeTheoHocVi();
         }
+
+        public List<TopGiangVien> GetTopGiangVien()
+        {
+            return _thongKeDAL.GetTopGiangVien();
+        }
     }
 }

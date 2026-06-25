@@ -2,7 +2,7 @@
 
 namespace MIEDU.Models.Entities
 {
-    // Model chứa dữ liệu tổng quan cho các thẻ (Cards) trên Dashboard
+    // Dữ liệu cho 4 thẻ (Cards) trên cùng
     public class ThongKeTongQuan
     {
         public int TongGiangVien { get; set; }
@@ -11,10 +11,18 @@ namespace MIEDU.Models.Entities
         public int TongPhanCong { get; set; }
     }
 
-    // Model chứa dữ liệu gom nhóm để đưa lên DataGridView hoặc Biểu đồ
+    // Dữ liệu để vẽ Biểu đồ Tròn
     public class ThongKeHocVi
     {
         public string HocVi { get; set; } = string.Empty;
         public int SoLuong { get; set; }
+    }
+
+    // THÊM MỚI: Model cho Bảng xếp hạng Top Giảng viên
+    public class TopGiangVien
+    {
+        public string MaGV { get; set; } = string.Empty;
+        public string HoTen { get; set; } = string.Empty;
+        public int TongTinChi { get; set; }
     }
 }

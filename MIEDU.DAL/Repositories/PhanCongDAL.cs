@@ -65,5 +65,20 @@ namespace MIEDU.DAL.Repositories
                 }
             }
         }
+
+        // THÊM MỚI: Hàm xóa phân công theo ID
+        public bool Delete(int id)
+        {
+            using (var conn = DatabaseConnection.GetConnection())
+            {
+                string query = "DELETE FROM PhanCong WHERE ID = @ID";
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

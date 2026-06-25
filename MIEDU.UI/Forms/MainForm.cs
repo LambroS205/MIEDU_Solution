@@ -18,8 +18,7 @@ namespace MIEDU.UI.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadUserInfo();
-            // Tự động load màn hình Quản lý Giảng viên khi vừa đăng nhập xong
-            btnQuanLyGV.PerformClick();
+            ApplyAuthorization(); // Gọi hàm phân quyền khi form load
         }
 
         private void LoadUserInfo()
@@ -27,6 +26,45 @@ namespace MIEDU.UI.Forms
             if (Session.CurrentUser != null)
             {
                 lblUserInfo.Text = $"Xin chào, {Session.CurrentUser.Username}\nVai trò: {Session.CurrentUser.GetRoleName()}";
+            }
+        }
+
+        private void ApplyAuthorization()
+        {
+            if (Session.CurrentUser == null) return;
+
+            // Kiểm tra Role của User hiện tại
+            if (Session.CurrentUser.RoleName == "GiangVien")
+            {
+                // 1. Ẩn các chức năng Quản trị đối với Giảng viên
+                btnQuanLyGV.Visible = false;
+                btnQuanLyMonHoc.Visible = false;
+                btnPhanCong.Visible = false;
+
+                // 2. Dịch chuyển các nút còn lại lên trên để lấp khoảng trống (tọa độ Y bắt đầu từ 150)
+                int startY = 150;
+                btnThongKe.Location = new System.Drawing.Point(0, startY);
+                btnThongTinCaNhan.Location = new System.Drawing.Point(0, startY + 50);
+
+                // 3. Màn hình khởi động mặc định cho Giảng viên
+                btnThongTinCaNhan.PerformClick();
+            }
+            else // Admin hoặc Chuyên viên
+            {
+                // 1. Hiện đầy đủ chức năng
+                btnQuanLyGV.Visible = true;
+                btnQuanLyMonHoc.Visible = true;
+                btnPhanCong.Visible = true;
+
+                // 2. Khôi phục tọa độ gốc cho các nút
+                btnQuanLyGV.Location = new System.Drawing.Point(0, 150);
+                btnQuanLyMonHoc.Location = new System.Drawing.Point(0, 200);
+                btnPhanCong.Location = new System.Drawing.Point(0, 250);
+                btnThongKe.Location = new System.Drawing.Point(0, 300);
+                btnThongTinCaNhan.Location = new System.Drawing.Point(0, 350);
+
+                // 3. Màn hình khởi động mặc định cho Admin
+                btnQuanLyGV.PerformClick();
             }
         }
 
@@ -41,6 +79,11 @@ namespace MIEDU.UI.Forms
         private void btnQuanLyGV_Click(object sender, EventArgs e)
         {
             LoadUserControl(new ucQuanLyGiangVien());
+        }
+
+        private void btnQuanLyMonHoc_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new ucQuanLyMonHoc());
         }
 
         private void btnPhanCong_Click(object sender, EventArgs e)
